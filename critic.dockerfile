@@ -79,9 +79,9 @@ CMD /etc/init.d/apache2 restart && \
     /etc/init.d/postgresql restart && \
     /etc/init.d/critic-main restart && \
     /etc/init.d/ssh restart && \
-     criticctl adduser --name aaa --no-email --fullname 'aaa test user' --password 'aaapass' && \
-     criticctl adduser --name bbb --no-email --fullname 'bbb test user' --password 'bbbpass' && \
-     criticctl adduser --name ccc --no-email --fullname 'ccc test user' --password 'cccpass' && \
+     criticctl adduser --name aaa --email 'aaa@email' --fullname 'aaa test user' --password 'aaapass' && \
+     criticctl adduser --name bbb --email 'bbb@email' --fullname 'bbb test user' --password 'bbbpass' && \
+     criticctl adduser --name ccc --email 'ccc@email' --fullname 'ccc test user' --password 'cccpass' && \
      tail -f /var/log/critic/main/servicemanager.log
 
 #directory where the Critic system configuration is stored
