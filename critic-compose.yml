@@ -1,0 +1,30 @@
+# get latest image
+#docker pull tvial/docker-mailserver
+#docker pull tjarosik/critic
+
+critic:
+  image: tjarosik/critic
+  hostname: critic
+  domainname: domain.com
+  #ports:
+  #- "8888:80"
+  volumes:
+  - ./users/git/:/var/git/
+
+# create a "docker-compose.yml" file containing:
+mail:
+  image: tvial/docker-mailserver
+  hostname: mail
+  domainname: domain.com
+  # your FQDN will be 'mail.domain.com'
+  ports:
+  - "2525:25"
+  - "143:143"
+  - "587:587"
+  - "993:993"
+  volumes:
+  - ./spamassassin:/tmp/spamassassin/
+  - ./postfix:/tmp/postfix/
+
+# start he container
+#docker-compose up -d mail
